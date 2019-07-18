@@ -1,0 +1,67 @@
+<header class="header">
+  <cabecalho></cabecalho>
+  <modalajuda></modalajuda>
+  <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Emitir Relatório'"></menucomponent>
+</header>
+<article>
+  <div class="container">
+    <!-- Corpo da página -->
+    <p-messages [closable]="false"></p-messages>
+    <form #emitirRelatorio="ngForm" novalidate>
+      <fieldset>
+        <div id="filtros" [collapse]="isCollapsed" class="collapse in" aria-expanded="false" aria-controls="filtros">
+          <div class="row">
+            <div class="col-md-6">
+              <table style="width: 100%">
+                <tr>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">Data</label>
+                      <p-calendar id="dataImportacaoDe" name="dataImportacaoDe" [(ngModel)]="filtro.dataImportacaoDe" dateFormat="dd/mm/yy" showIcon="true"
+                        [locale]="pt"></p-calendar>
+                    </div>
+                  </td>
+                  <td style="padding-top: 10px; text-align: center;">até</td>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <p-calendar id="dataImportacaoAte" name="dataImportacaoAte" [(ngModel)]="filtro.dataImportacaoAte" dateFormat="dd/mm/yy"
+                        showIcon="true" [locale]="pt"></p-calendar>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group" [class.required-auto-complete]="!preenchimentoAutoCompletes">
+                <label for="fronteira" class="control-label obrigatorio">Fronteira</label>
+                <p-autoComplete id="fronteira" name="fronteira" (onBlur)="validaAutocomplete()" [suggestions]="fronteiraList" [(ngModel)]="filtro.fronteira"
+                  (completeMethod)="buscaFronteira($event)" [minLength]="1"></p-autoComplete>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group" [class.required-auto-complete]="!preenchimentoAutoCompletes">
+                <label for="projeto" class="control-label obrigatorio">Projeto</label>
+                <p-autoComplete id="projeto" name="projeto" (onBlur)="validaAutocomplete()" [suggestions]="projetoList" [(ngModel)]="filtro.projeto"
+                  (completeMethod)="buscaProjeto($event)" [minLength]="1"></p-autoComplete>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [class.required-dropdown]="!preenchimentoDropdown">
+                <label for="tipoRelatorio" class="control-label obrigatorio">Tipo</label>
+                <p-dropdown id="tipoRelatorio" name="tipoRelatorio" (onChange)="validaTipo()" [options]="tipoRelatorioList" [(ngModel)]="filtro.tipoRelatorio"></p-dropdown>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!-- FOOTER -->
+          <div class="form-group">
+            <button (click)="emitir()" class="btn btn-primary" type="button">Emitir</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</article>

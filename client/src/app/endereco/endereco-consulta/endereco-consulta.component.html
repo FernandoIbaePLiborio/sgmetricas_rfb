@@ -1,0 +1,137 @@
+<header class="header">
+  <cabecalho></cabecalho>
+  <modalajuda></modalajuda>
+  <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Consultar Endereços'"></menucomponent>
+  <linkincluir [titulo]="'Adicionar Endereço'" [caminho]="['/pages', 'endereco-edicao', {acao: 'INCLUSAO'}]"></linkincluir>
+</header>
+<article>
+<div class="container">
+  <!-- Corpo da página -->
+  <!-- Filtros de pesquisa -->
+  <p-messages [closable]="false"></p-messages>
+  <form>
+    <fieldset>
+      <h2 (click)="isCollapsed = !isCollapsed" href="#filtros" aria-expanded="true" aria-controls="filtros">
+        <i class="material-icons">expand_more</i>
+        Filtros de pesquisa
+      </h2>
+      <div id="filtros" [collapse]="isCollapsed" class="collapse in" aria-expanded="false" aria-controls="filtros">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group has-error">
+              <label for="filtro.numeroProcesso" class="control-label obrigatorio">Número do processo</label>
+              <div class="input-group">
+                <input type="text" name="filtro.numeroProcesso" [(ngModel)]="filtro.numeroProcesso" id="filtro.numeroProcesso" class="form-control">
+                <span class="input-group-addon">
+                  <span data-toggle="tooltip" title="Ajuda"><i class="material-icons">help</i></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="filtro.cep" class="control-label">CEP</label>
+              <div class="input-group">
+                <input type="text" name="filtro.cep" [(ngModel)]="filtro.cep" id="filtro.cep" class="form-control">
+                <span class="input-group-addon">
+                  <span data-toggle="tooltip" title="Ajuda"><i class="material-icons">help</i></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="filtro.rua" class="control-label">Rua</label>
+              <input type="text" name="filtro.rua" [(ngModel)]="filtro.rua" id="filtro.rua" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="filtro.complemento" class="control-label">Complemento</label>
+              <input type="text" name="filtro.complemento" [(ngModel)]="filtro.complemento" id="filtro.complemento" 
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="onClickLimpar()" class="btn btn-default" type="reset">Limpar</button>
+          <button (click)="onClickBuscar()" class="btn btn-primary" type="button">Buscar</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  <!-- Tabela customizada -->
+  <p-dataTable #dt [value]="result.itensPagina" [rows]="10" [paginator]="true" [pageLinks]="5"
+    [lazy]="true" (onLazyLoad)="loadData($event)" [totalRecords]="result.paginador.numeroTotalItens"
+    [rowsPerPageOptions]="[10,50,100]">
+    <p-header>
+      <table class="table table-striped tabela" style="width:100%">
+        <caption style="width:100%">CONSULTAR ENDEREÇOS</caption>
+        <thead>
+          <tr class="tabela-acoes">
+            <td colspan="6">
+              <div class="row">
+                <div class="col-md-6" style="text-align: left;">
+                  <a href="">Excluir</a> | <a href="">Associar</a> | <a href="">Imprimir</a>
+                </div>
+                <div class="col-md-6 text-right hidden-xs">
+                  <a (click)="dt.exportCSV()"><i class="material-icons icon-18">print</i></a>
+                  <a><i class="material-icons icon-18">open_in_new</i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </p-header>
+    <p-footer>
+      <table style="width:100%">
+        <thead>
+          <tr>
+            <td colspan="12">
+              <div class="row">
+                <div class="col-md-6" style="text-align: left;">
+                  Total de Registros: {{result.paginador.numeroTotalItens}}
+                </div>
+                <div class="col-md-6 text-right hidden-xs">
+                  <a (click)="dt.exportCSV()"><i class="material-icons icon-18">print</i></a>
+                  <a><i class="material-icons icon-18">open_in_new</i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </p-footer>
+    <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+    <p-column header="Ações" [style]="{'width':'60px','text-align':'center'}">
+      <ng-template let-item="rowData" pTemplate="body">
+          <ng-template #popTemplate>
+            <div class='btn-group-vertical' role='group'>
+              <button type="button" class="btn btn-default"
+                [routerLink]="['/pages', 'endereco-edicao', {id: item.id, acao: 'DETALHES'}]">
+                  Detalhes
+              </button>
+              <button type='button' class='btn btn-default'
+              [routerLink]="['/pages', 'endereco-edicao', {id: item.id, acao: 'ALTERACAO'}]">
+                  Alterar
+              </button>
+              <button type='button' class='btn btn-default' (click)='onClickDelete(item)'>
+                  Excluir
+              </button>
+            </div>
+          </ng-template>
+          <button type="button" class="btn btn-link" [outsideClick]="popTemplate" [popover]="popTemplate" placement="right">
+            <i class="material-icons icon-24">menu</i>
+          </button>
+      </ng-template>
+    </p-column>
+    <p-column field="numeroProcesso" header="Número Processo" [sortable]="true" [filter]="true"></p-column>
+    <p-column field="rua" header="Rua" [sortable]="true" [filter]="true"></p-column>
+    <p-column field="cep" header="Cep" [sortable]="true" [filter]="true"></p-column>
+  </p-dataTable>
+  <br/>  
+</div>
+</article>

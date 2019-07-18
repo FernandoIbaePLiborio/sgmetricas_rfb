@@ -1,0 +1,661 @@
+<header class="header">
+  <cabecalho></cabecalho>
+  <modalajuda></modalajuda>
+  <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Adicionar Template'"></menucomponent>
+</header>
+<article>
+  <div class="container">
+    <loader></loader>
+    <!-- Corpo da página -->
+    <p-messages [closable]="false"></p-messages>
+    <form novalidate>
+      <div>
+        <tabset>
+          <tab heading="Sumário">
+            <!-- ABA SUMARIO -->
+            <table border="1" style="width: 100%">
+              <tr>
+                <td colspan="8" align="center" class="sumario-titulo">Resumo da contagem de pontos de função RFB</td>
+              </tr>
+              <tr>
+                <td colspan="8">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td colspan="3" align="center" class="sumario-subtitulo">Quantidade</td>
+                <td colspan="3" align="center" class="sumario-subtitulo">Total de PF</td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td align="center" class="sumario-destaque">Baixa</td>
+                <td align="center" class="sumario-destaque">Média</td>
+                <td align="center" class="sumario-destaque">Alta</td>
+                <td align="center" class="sumario-destaque">Baixa</td>
+                <td align="center" class="sumario-destaque">Média</td>
+                <td align="center" class="sumario-destaque">Alta</td>
+              </tr>
+              <tr>
+                <td rowspan="3" align="center" class="sumario-grupo">ALI
+                  <br/>Arquivo Lógico Interno</td>
+                <td align="right" class="sumario-item">Função de Dados</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliFuncaoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliFuncaoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliFuncaoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliFuncaoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliFuncaoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliFuncaoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item">Retrabalho</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aliRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item-bold">Total de ALI</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aliFuncaoQuantidadeBaixa + contagem.resumoContagem.aliRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aliFuncaoQuantidadeMedia + contagem.resumoContagem.aliRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aliFuncaoQuantidadeAlta + contagem.resumoContagem.aliRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aliFuncaoPFBaixa + contagem.resumoContagem.aliRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aliFuncaoPFMedia + contagem.resumoContagem.aliRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aliFuncaoPFAlta + contagem.resumoContagem.aliRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td colspan="8">&nbsp;</td>
+              </tr>
+              <tr>
+                <td rowspan="3" align="center" class="sumario-grupo">AIE
+                  <br/>Arquivo de Interface Externa</td>
+                <td align="right" class="sumario-item">Função de Dados</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieFuncaoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieFuncaoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieFuncaoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieFuncaoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieFuncaoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieFuncaoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item">Retrabalho</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.aieRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item-bold">Total de AIE</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aieFuncaoQuantidadeBaixa + contagem.resumoContagem.aieRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aieFuncaoQuantidadeMedia + contagem.resumoContagem.aieRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aieFuncaoQuantidadeAlta + contagem.resumoContagem.aieRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aieFuncaoPFBaixa + contagem.resumoContagem.aieRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aieFuncaoPFMedia + contagem.resumoContagem.aieRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.aieFuncaoPFAlta + contagem.resumoContagem.aieRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td colspan="8">&nbsp;</td>
+              </tr>
+              <tr>
+                <td rowspan="3" align="center" class="sumario-grupo">EE
+                  <br/>Entrada Externa</td>
+                <td align="right" class="sumario-item">Função Transacional</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeFuncaoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeFuncaoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeFuncaoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeFuncaoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeFuncaoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeFuncaoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item">Retrabalho</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.eeRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item-bold">Total de EE</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.eeFuncaoQuantidadeBaixa + contagem.resumoContagem.eeRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.eeFuncaoQuantidadeMedia + contagem.resumoContagem.eeRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.eeFuncaoQuantidadeAlta + contagem.resumoContagem.eeRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.eeFuncaoPFBaixa + contagem.resumoContagem.eeRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.eeFuncaoPFMedia + contagem.resumoContagem.eeRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.eeFuncaoPFAlta + contagem.resumoContagem.eeRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td colspan="8">&nbsp;</td>
+              </tr>
+              <tr>
+                <td rowspan="3" align="center" class="sumario-grupo">SE
+                  <br/>Saída Externa</td>
+                <td align="right" class="sumario-item">Função Transacional</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seFuncaoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seFuncaoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seFuncaoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seFuncaoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seFuncaoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seFuncaoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item">Retrabalho</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.seRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item-bold">Total de SE</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.seFuncaoQuantidadeBaixa + contagem.resumoContagem.seRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.seFuncaoQuantidadeMedia + contagem.resumoContagem.seRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.seFuncaoQuantidadeAlta + contagem.resumoContagem.seRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.seFuncaoPFBaixa + contagem.resumoContagem.seRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.seFuncaoPFMedia + contagem.resumoContagem.seRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.seFuncaoPFAlta + contagem.resumoContagem.seRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td colspan="8">&nbsp;</td>
+              </tr>
+              <tr>
+                <td rowspan="3" align="center" class="sumario-grupo">CE
+                  <br/>Consulta Externa</td>
+                <td align="right" class="sumario-item">Função Transacional</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceFuncaoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceFuncaoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceFuncaoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceFuncaoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceFuncaoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceFuncaoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item">Retrabalho</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-td">{{contagem.resumoContagem.ceRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td align="right" class="sumario-item-bold">Total de CE</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.ceFuncaoQuantidadeBaixa + contagem.resumoContagem.ceRetrabalhoQuantidadeBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.ceFuncaoQuantidadeMedia + contagem.resumoContagem.ceRetrabalhoQuantidadeMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.ceFuncaoQuantidadeAlta + contagem.resumoContagem.ceRetrabalhoQuantidadeAlta}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.ceFuncaoPFBaixa + contagem.resumoContagem.ceRetrabalhoPFBaixa}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.ceFuncaoPFMedia + contagem.resumoContagem.ceRetrabalhoPFMedia}}</td>
+                <td align="center" class="sumario-destaque">{{contagem.resumoContagem.ceFuncaoPFAlta + contagem.resumoContagem.ceRetrabalhoPFAlta}}</td>
+              </tr>
+              <tr>
+                <td colspan="8">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="7" align="right" class="sumario-destaque-direita">PF Função de Dados</td>
+                <td align="center" class="sumario-destaque">
+                  {{ contagem.resumoContagem.aliFuncaoPFBaixa + contagem.resumoContagem.aliFuncaoPFMedia + contagem.resumoContagem.aliFuncaoPFAlta
+                  + contagem.resumoContagem.aliRetrabalhoPFBaixa + contagem.resumoContagem.aliRetrabalhoPFMedia + contagem.resumoContagem.aliRetrabalhoPFAlta
+                  + contagem.resumoContagem.aieFuncaoPFBaixa + contagem.resumoContagem.aieFuncaoPFMedia + contagem.resumoContagem.aieFuncaoPFAlta
+                  + contagem.resumoContagem.aieRetrabalhoPFBaixa + contagem.resumoContagem.aieRetrabalhoPFMedia + contagem.resumoContagem.aieRetrabalhoPFAlta
+                  }}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="7" align="right" class="sumario-destaque-direita">PF Retrabalho</td>
+                <td align="center" class="sumario-destaque">
+                  {{ contagem.resumoContagem.aliRetrabalhoPFBaixa + contagem.resumoContagem.aliRetrabalhoPFMedia + contagem.resumoContagem.aliRetrabalhoPFAlta
+                  + contagem.resumoContagem.aieRetrabalhoPFBaixa + contagem.resumoContagem.aieRetrabalhoPFMedia + contagem.resumoContagem.aieRetrabalhoPFAlta
+                  + contagem.resumoContagem.eeRetrabalhoPFBaixa + contagem.resumoContagem.eeRetrabalhoPFMedia + contagem.resumoContagem.eeRetrabalhoPFAlta
+                  + contagem.resumoContagem.ceRetrabalhoPFBaixa + contagem.resumoContagem.ceRetrabalhoPFMedia + contagem.resumoContagem.ceRetrabalhoPFAlta
+                  + contagem.resumoContagem.seRetrabalhoPFBaixa + contagem.resumoContagem.seRetrabalhoPFMedia + contagem.resumoContagem.seRetrabalhoPFAlta
+                  }}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="7" align="right" class="sumario-destaque-direita">PF Função Transacional</td>
+                <td align="center" class="sumario-destaque">
+                  {{ contagem.resumoContagem.eeFuncaoPFBaixa + contagem.resumoContagem.eeFuncaoPFMedia + contagem.resumoContagem.eeFuncaoPFAlta
+                  + contagem.resumoContagem.eeRetrabalhoPFBaixa + contagem.resumoContagem.eeRetrabalhoPFMedia + contagem.resumoContagem.eeRetrabalhoPFAlta
+                  + contagem.resumoContagem.ceFuncaoPFBaixa + contagem.resumoContagem.ceFuncaoPFMedia + contagem.resumoContagem.ceFuncaoPFAlta
+                  + contagem.resumoContagem.ceRetrabalhoPFBaixa + contagem.resumoContagem.ceRetrabalhoPFMedia + contagem.resumoContagem.ceRetrabalhoPFAlta
+                  + contagem.resumoContagem.seFuncaoPFBaixa + contagem.resumoContagem.seFuncaoPFMedia + contagem.resumoContagem.seFuncaoPFAlta
+                  + contagem.resumoContagem.seRetrabalhoPFBaixa + contagem.resumoContagem.seRetrabalhoPFMedia + contagem.resumoContagem.seRetrabalhoPFAlta
+                  }}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="7" align="right" class="sumario-destaque-direita">Total de PF Bruto</td>
+                <td align="center" class="sumario-destaque">
+                  {{ contagem.resumoContagem.aliFuncaoPFBaixa + contagem.resumoContagem.aliFuncaoPFMedia + contagem.resumoContagem.aliFuncaoPFAlta
+                  + contagem.resumoContagem.aliRetrabalhoPFBaixa + contagem.resumoContagem.aliRetrabalhoPFMedia + contagem.resumoContagem.aliRetrabalhoPFAlta
+                  + contagem.resumoContagem.aieFuncaoPFBaixa + contagem.resumoContagem.aieFuncaoPFMedia + contagem.resumoContagem.aieFuncaoPFAlta
+                  + contagem.resumoContagem.aieRetrabalhoPFBaixa + contagem.resumoContagem.aieRetrabalhoPFMedia + contagem.resumoContagem.aieRetrabalhoPFAlta
+                  + contagem.resumoContagem.eeFuncaoPFBaixa + contagem.resumoContagem.eeFuncaoPFMedia + contagem.resumoContagem.eeFuncaoPFAlta
+                  + contagem.resumoContagem.eeRetrabalhoPFBaixa + contagem.resumoContagem.eeRetrabalhoPFMedia + contagem.resumoContagem.eeRetrabalhoPFAlta
+                  + contagem.resumoContagem.ceFuncaoPFBaixa + contagem.resumoContagem.ceFuncaoPFMedia + contagem.resumoContagem.ceFuncaoPFAlta
+                  + contagem.resumoContagem.ceRetrabalhoPFBaixa + contagem.resumoContagem.ceRetrabalhoPFMedia + contagem.resumoContagem.ceRetrabalhoPFAlta
+                  + contagem.resumoContagem.seFuncaoPFBaixa + contagem.resumoContagem.seFuncaoPFMedia + contagem.resumoContagem.seFuncaoPFAlta
+                  + contagem.resumoContagem.seRetrabalhoPFBaixa + contagem.resumoContagem.seRetrabalhoPFMedia + contagem.resumoContagem.seRetrabalhoPFAlta
+                  }}
+                </td>
+              </tr>
+            </table>
+          </tab>
+          <tab heading="Contagem">
+            <!-- ABA CONTAGEM -->
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="projeto" class="control-label">Projeto</label>
+                  <input id="projeto" name="projeto" [(ngModel)]="contagem.projeto" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="linguagem" class="control-label">Linguagem</label>
+                  <input id="linguagem" name="linguagem" [(ngModel)]="contagem.linguagem" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="tipoProjeto" class="control-label">Tipo do Projeto</label>
+                  <p-dropdown id="tipoProjeto" name="tipoProjeto" [options]="tipoProjetoList" [(ngModel)]="contagem.tipoProjeto"></p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="tipoContagem" class="control-label">Tipo da Contagem</label>
+                  <p-dropdown id="tipoContagem" name="tipoContagem" [options]="tipoContagemList" [(ngModel)]="contagem.tipoContagem"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="plataforma" class="control-label">Plataforma</label>
+                  <input id="plataforma" name="plataforma" [(ngModel)]="contagem.plataforma" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="liderProjeto" class="control-label">Líder do Projeto</label>
+                  <input id="liderProjeto" name="liderProjeto" [(ngModel)]="contagem.liderProjeto" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="fronteira" class="control-label">Fronteira</label>
+                  <input id="fronteira" name="fronteira" type="text" [(ngModel)]="contagem.fronteira" pInputText class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="dataImportacao" class="control-label">Data da Importação</label>
+                  <p-calendar id="dataImportacao" name="dataImportacao" [(ngModel)]="contagem.dataImportacao" dateFormat="dd/mm/yy" showIcon="true"
+                    [locale]="pt"></p-calendar>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="fornecedor" class="control-label">Fornecedor</label>
+                  <p-dropdown id="fornecedor" name="fornecedor" [options]="fornecedorList" [(ngModel)]="contagem.fornecedor"></p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="numeroDemanda" class="control-label">Número da Demanda</label>
+                  <input id="numeroDemanda" name="numeroDemanda" [(ngModel)]="contagem.numeroDemanda" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="situacao" class="control-label">Situação</label>
+                  <p-dropdown id="situacao" name="situacao" [options]="situacaoList" [(ngModel)]="contagem.situacao"></p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="metodoContagem" class="control-label">Metodo de Contagem</label>
+                  <p-dropdown id="metodoContagem" name="metodoContagem" [options]="metodoContagemList" [(ngModel)]="contagem.metodoContagem"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-15 col-sm-3">
+                <div class="form-group">
+                  <label for="pfFuncaoDados" class="control-label">PF Função de Dados</label>
+                  <input currencyMask id="pfFuncaoDados" name="pfFuncaoDados" [(ngModel)]="contagem.pfFuncaoDados" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                    type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-15 col-sm-3">
+                <div class="form-group">
+                  <label for="pfFuncaoTransacional" class="control-label">PF Função Transacional</label>
+                  <input currencyMask id="pfFuncaoTransacional" name="pfFuncaoTransacional" [(ngModel)]="contagem.pfFuncaoTransacional" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                    type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-15 col-sm-3">
+                <div class="form-group">
+                  <label for="pfRetrabalho" class="control-label">PF Retrabalho</label>
+                  <input currencyMask id="pfRetrabalho" name="pfRetrabalho" [(ngModel)]="contagem.pfRetrabalho" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                    type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-15 col-sm-3">
+                <div class="form-group">
+                  <label for="totalPfBruto" class="control-label">Total de PF Bruto</label>
+                  <input currencyMask id="totalPfBruto" name="totalPfBruto" [(ngModel)]="contagem.totalPfBruto" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                    type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-15 col-sm-3">
+                <div class="form-group">
+                  <label for="totalPfDemanda" class="control-label">Total PF da Demanda</label>
+                  <input currencyMask id="totalPfDemanda" name="totalPfDemanda" [(ngModel)]="contagem.totalPfDemanda" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                    type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="propositoEscopo" class="control-label">Propósito e Escopo</label>
+              <textarea id="propositoEscopo" name="propositoEscopo" [(ngModel)]="contagem.propositoEscopo" rows="4" cols="50" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="artefatosUsados" class="control-label">Artefatos usados na contagem</label>
+              <textarea id="artefatosUsados" name="artefatosUsados" [(ngModel)]="contagem.artefatosUsadosContagem" rows="4" cols="50" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="observacoes" class="control-label">Observações</label>
+              <textarea id="observacoes" name="observacoes" [(ngModel)]="contagem.observacoes" rows="4" cols="50" class="form-control"></textarea>
+            </div>
+            
+            <!-- FOOTER -->
+            <div class="form-group">
+              <button (click)="onClickVoltar()" class="btn btn-default" type="button">Voltar</button>
+              <button (click)="onClickLimpar()" class="btn btn-default" type="reset">Limpar</button>
+              <button (click)="onClickAcao()" *ngIf="!readOnly" class="btn btn-primary" type="button">{{tituloBotaoAcao}}</button>
+            </div>
+          </tab>
+          
+          <tab heading="Funcionalidades">
+            <!-- ABA FUNCIONALIDADES -->
+            <div class="form-group">
+              <label class="control-label">Projeto: </label>
+              <label class="control-label">{{contagem.projeto}}</label>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="nome" class="control-label">Nome da Funcionalidade</label>
+                  <input id="nome" name="nome" [(ngModel)]="funcionalidadeFiltro.nome" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="pontoFuncao" class="control-label">Ponto Função</label>
+                  <input currencyMask id="pontoFuncao" name="pontoFuncao" [(ngModel)]="funcionalidadeFiltro.pontoFuncao" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                    type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="tipo" class="control-label">Tipo de Funcionalidade</label>
+                  <p-dropdown id="tipo" name="tipo" [options]="tipoFuncionalidadeList" [(ngModel)]="funcionalidadeFiltro.tipo"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="td" class="control-label">TD</label>
+                  <input id="td" name="td" [(ngModel)]="funcionalidadeFiltro.td" type="number" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="lrAr" class="control-label">LR/AR</label>
+                  <input id="lrAr" name="lrAr" [(ngModel)]="funcionalidadeFiltro.lrAr" type="number" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="classificacao" class="control-label">Classificação</label>
+                  <p-dropdown id="classificacao" name="classificacao" [options]="classificacaoList" [(ngModel)]="funcionalidadeFiltro.classificacao"></p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="complexidade" class="control-label">Complexidade</label>
+                  <p-dropdown id="complexidade" name="complexidade" [options]="complexidadeList" [(ngModel)]="funcionalidadeFiltro.complexidade"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button (click)="onClickLimpar()" class="btn btn-default" type="reset">Limpar</button>
+              <button (click)="onClickBuscar()" class="btn btn-primary" type="button">Buscar</button>
+            </div>
+            <!-- POPUP FUNCIONALIDADE -->
+            <ng-template #template>
+              <div class="col-sm-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Alterar Funcionalidade</h3>
+                  </div>
+                  <div class="panel-body">
+                    <!-- Conteudo -->
+                    <div class="form-group">
+                      <label for="funcionalidade.nome" class="control-label">Nome da Funcionalidade</label>
+                      <input id="funcionalidade.nome" name="funcionalidade.nome" [(ngModel)]="funcionalidade.nome" type="text" class="form-control">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.tipo" class="control-label">Tipo</label>
+                          <p-dropdown id="funcionalidade.tipo" name="funcionalidade.tipo" [options]="tipoFuncionalidadeList" [(ngModel)]="funcionalidade.tipo"></p-dropdown>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <label for="funcionalidade.tipoDemanda" class="control-label">Tipo de Demanda</label>
+                          <p-dropdown id="funcionalidade.tipoDemanda" name="funcionalidade.tipoDemanda" [options]="tipoDemandaList" [(ngModel)]="funcionalidade.tipoDemanda"></p-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.rlAr" class="control-label">RL/AR</label>
+                          <input id="funcionalidade.rlAr" name="funcionalidade.rlAr" type="number" [(ngModel)]="funcionalidade.rlAr" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.memoriaRlAr" class="control-label">Memória RL / AR</label>
+                          <input id="funcionalidade.memoriaRlAr" name="funcionalidade.memoriaRlAr" [(ngModel)]="funcionalidade.memoriaRlAr" type="text"
+                            class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.td" class="control-label">TD's</label>
+                          <input id="funcionalidade.td" name="funcionalidade.td" [(ngModel)]="funcionalidade.td" type="number" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="funcionalidade.memoriaTd" class="control-label">Memória TD</label>
+                      <textarea id="funcionalidade.memoriaTd" name="funcionalidade.memoriaTd" [(ngModel)]="funcionalidade.memoriaTd" rows="4" cols="50"
+                        class="form-control"></textarea>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.classificacao" class="control-label">Classificação</label>
+                          <p-dropdown id="funcionalidade.classificacao" name="funcionalidade.classificacao" [options]="classificacaoList" [(ngModel)]="funcionalidade.classificacao"></p-dropdown>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.complexidade" class="control-label">Complexidade</label>
+                          <p-dropdown id="funcionalidade.complexidade" name="funcionalidade.complexidade" [options]="complexidadeList" [(ngModel)]="funcionalidade.complexidade"></p-dropdown>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="funcionalidade.pontoFuncao" class="control-label">Ponto de Função</label>
+                          <input currencyMask id="funcionalidade.pontoFuncao" name="funcionalidade.pontoFuncao" [(ngModel)]="funcionalidade.pontoFuncao"
+                            [options]="{ prefix: '', thousands: '.', decimal: ',' }" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="funcionalidade.rastreabilidadeJustificativa" class="control-label">Rastreabilidade / Justificativa</label>
+                      <textarea id="funcionalidade.rastreabilidadeJustificativa" name="funcionalidade.rastreabilidadeJustificativa" [(ngModel)]="funcionalidade.rastreabilidadeJustificativa"
+                        rows="4" cols="50" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="funcionalidade.divergencias" class="control-label">Divergências</label>
+                      <textarea id="funcionalidade.divergencias" name="funcionalidade.divergencias" [(ngModel)]="funcionalidade.divergencias" rows="4"
+                        cols="50" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <!-- FOOTER -->
+                  <div class="panel-footer">
+                    <button class="btn btn-default" type="button" (click)="modalRef.hide()">
+                      <span>Cancelar</span>
+                    </button>
+                    <button class="btn btn-default" type="button" (click)="salvarFuncionalidade()">
+                      <span>Salvar</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <!-- Tabela customizada -->
+            <div class="paginador">
+              <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+              <a *ngFor="let option of itensPorPagina" style="display: inline;" (click)="setRows(option.rows)" class="link">
+                {{option.rows}}
+              </a>
+            </div>
+            <div class="pesquisa-paginador-top">
+              <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+              <input #pageTop type="text" class="input-pesquisar-pagina-top form-control" (keyup.enter)="setPage(pageTop.value)" />
+            </div>
+            <p-dataTable #dataTable [value]="funcionalidadeList.itensPagina" [paginatorPosition]="'both'" [responsive]="true" [pageLinks]="5"
+              [lazy]="true" [rows]="10" [paginator]="true" [style]="{'width':'100%'}" (onFilter)="setFilter($event)" (onSort)="setSortOrder($event)"
+              (onPage)="loadData($event)" [totalRecords]="funcionalidadeList.paginador.numeroTotalItens"
+              [responsive]="true">
+              <ng-template pTemplate="emptymessage">
+                Nenhum registro encontrado para a consulta.
+              </ng-template>
+              <p-header>
+                <table class="table table-striped tabela" style="width:100%">
+                  <caption style="width:100%">CONSULTAR FUNCIONALIDADES</caption>
+                  <thead>
+                    <tr class="tabela-acoes">
+                      <td colspan="6">
+                        <div class="row">
+                          <div class="col-md-6" style="text-align: left;">&nbsp;</div>
+                          <div class="col-md-6 text-right hidden-xs">
+                            <a href="javascript:void(0)" (click)="exportXLS()" title="XLS">
+                              <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                            </a>
+                            &nbsp;
+                            <a href="javascript:void(0)" (click)="exportPDF()" title="PDF">
+                              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+              </p-header>
+              <p-footer>
+                <table style="width:100%">
+                  <thead>
+                    <tr>
+                      <td colspan="12">
+                        <div class="row">
+                          <div class="col-md-6" style="text-align: left;">
+                            Total de Registros: {{funcionalidadeList.paginador.numeroTotalItens}}
+                          </div>
+                          <div class="col-md-6 text-right hidden-xs">
+                            <a href="javascript:void(0)" (click)="exportXLS()" title="XLS">
+                              <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                            </a>
+                            &nbsp;
+                            <a href="javascript:void(0)" (click)="exportPDF()" title="PDF">
+                              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+              </p-footer>
+              <p-column header="Ações" [style]="{'width':'60px','text-align':'center'}">
+                <ng-template let-item="rowData" pTemplate="body">
+                  <ng-template #popTemplate>
+                    <div class='btn-group-vertical' role='group'>
+                      <button type='button' class='btn btn-default' (click)="openModal(template, item);pop.hide();">
+                        Alterar
+                      </button>
+                      <button type='button' class='btn btn-default' (click)='onClickDelete(item)'>
+                        Excluir
+                      </button>
+                    </div>
+                  </ng-template>
+                  <button type="button" class="btn btn-link" #pop="bs-popover" [outsideClick]="popTemplate" [popover]="popTemplate" placement="right">
+                    <i class="material-icons icon-24">menu</i>
+                  </button>
+                </ng-template>
+              </p-column>
+              <p-column field="tipo" header="Tipo" [filter]="true" [sortable]="true" [style]="{'width':'80px'}"></p-column>
+              <p-column field="nome" header="Nome" [filter]="true" [sortable]="true"></p-column>
+              <p-column field="classificacao" header="Classificação" [filter]="true" [sortable]="true" [style]="{'text-align':'center','width':'150px'}">
+                <ng-template let-col let-item="rowData" pTemplate="body">
+                  <span>{{getClassificacaoDescricao(item['classificacao'])}}</span>
+                </ng-template>
+              </p-column>
+              <p-column field="complexidade" header="Complexidade" [filter]="true" [sortable]="true" [style]="{'text-align':'center','width':'130px'}">
+                <ng-template let-col let-item="rowData" pTemplate="body">
+                  <span>{{getComplexidadeDescricao(item['complexidade'])}}</span>
+                </ng-template>
+              </p-column>
+              <p-column field="pontoFuncao" header="Ponto Função" [filter]="true" [sortable]="true" [style]="{'text-align':'right','width':'120px'}">
+                <ng-template let-col let-item="rowData" pTemplate="body">
+                  <span>{{getFormatarDecimal(item['pontoFuncao'])}}</span>
+                </ng-template>>
+              </p-column>
+              <p-column field="td" header="TD" [filter]="true" [sortable]="true" [style]="{'text-align':'right','width':'80px'}"></p-column>
+              <p-column field="rlAr" header="LR/AR" [filter]="true" [sortable]="true" [style]="{'text-align':'right','width':'80px'}"></p-column>
+            </p-dataTable>
+            <div class="paginador-bottom">
+              <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+              <a *ngFor="let option of itensPorPagina" style="display: inline;" (click)="setRows(option.rows)" class="link">
+                {{option.rows}}
+              </a>
+            </div>
+            <div class="pesquisa-paginador-bottom">
+              <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+              <input #page type="text" class="input-pesquisar-pagina form-control" (keyup.enter)="setPage(page.value)" />
+            </div>
+            <p-confirmDialog class="botao-confirma" acceptLabel="Sim" rejectLabel="Não" header="Confirmação" icon="pi pi-exclamation-triangle"
+              width="500"></p-confirmDialog>
+            <br/>
+          </tab>
+        </tabset>
+      </div>
+    </form>
+  </div>
+</article>

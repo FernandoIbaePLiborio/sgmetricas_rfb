@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gmetricas</groupId>
+	<artifactId>gmetricas</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>GMetricas</name>
+
+	<parent>
+		<groupId>org.demoiselle.jee</groupId>
+		<artifactId>demoiselle-parent-rest</artifactId>
+		<version>3.0.0</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<build>
+		<finalName>gmetricas</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
+			</plugin>
+			<plugin>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <version>2.1.1</version>
+	            <configuration>
+	                <failOnMissingWebXml>false</failOnMissingWebXml>
+	                <webResources>
+	                    <resource>
+	                        <directory>${basedir}/src/main/webapp</directory>
+	                        <filtering>true</filtering>
+	                        <includes>
+	                            <include>WEB-INF/gmetrica/util/Application.properties</include>
+	                        </includes>
+	                    </resource>
+	                </webResources>
+	            </configuration>
+	        </plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>			
+			</activation>
+			<id>local</id>
+			<properties>
+	            <id_sistema>8</id_sistema>
+	        </properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>br.gov.rfb.corporativo</groupId>
+			<artifactId>rfb-corporativoCliente</artifactId>
+			<version>2.0.1</version>
+			<type>jar</type>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.odftoolkit/simple-odf -->
+		<dependency>
+		    <groupId>org.apache.odftoolkit</groupId>
+		    <artifactId>simple-odf</artifactId>
+		    <version>0.8.2-incubating</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.9</version>
+		</dependency>
+
+		<!-- JASPER -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.0.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jfreechart</artifactId>
+					<groupId>jfree</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports-fonts</artifactId>
+		    <version>6.0.0</version>
+		</dependency>
+		
+		<!-- GSON -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.2</version>
+		</dependency>
+		
+		<!-- Apache POI -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>3.11</version>
+		</dependency>
+
+		<!-- Signer -->
+		<dependency>
+			<groupId>org.demoiselle.signer</groupId>
+			<artifactId>core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.demoiselle.signer</groupId>
+			<artifactId>policy-impl-cades</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.demoiselle.signer</groupId>
+			<artifactId>chain-icp-brasil</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+	</dependencies>
+	
+    <repositories>
+      <repository>
+	<id>JBoss repository</id>
+	<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+      </repository>
+    </repositories>	
+
+</project>

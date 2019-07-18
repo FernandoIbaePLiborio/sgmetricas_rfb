@@ -1,0 +1,65 @@
+export class ResumoContagem {
+
+    aliFuncaoQuantidadeBaixa: number;
+    aliFuncaoQuantidadeMedia: number;
+    aliFuncaoQuantidadeAlta: number;
+    aliFuncaoPFBaixa: number;
+    aliFuncaoPFMedia: number;
+    aliFuncaoPFAlta: number;
+    aliRetrabalhoQuantidadeBaixa: number;
+    aliRetrabalhoQuantidadeMedia: number;
+    aliRetrabalhoQuantidadeAlta: number;
+    aliRetrabalhoPFBaixa: number;
+    aliRetrabalhoPFMedia: number;
+    aliRetrabalhoPFAlta: number;
+    aieFuncaoQuantidadeBaixa: number;
+    aieFuncaoQuantidadeMedia: number;
+    aieFuncaoQuantidadeAlta: number;
+    aieFuncaoPFBaixa: number;
+    aieFuncaoPFMedia: number;
+    aieFuncaoPFAlta: number;
+    aieRetrabalhoQuantidadeBaixa: number;
+    aieRetrabalhoQuantidadeMedia: number;
+    aieRetrabalhoQuantidadeAlta: number;
+    aieRetrabalhoPFBaixa: number;
+    aieRetrabalhoPFMedia: number;
+    aieRetrabalhoPFAlta: number;
+    eeFuncaoQuantidadeBaixa: number;
+    eeFuncaoQuantidadeMedia: number;
+    eeFuncaoQuantidadeAlta: number;
+    eeFuncaoPFBaixa: number;
+    eeFuncaoPFMedia: number;
+    eeFuncaoPFAlta: number;
+    eeRetrabalhoQuantidadeBaixa: number;
+    eeRetrabalhoQuantidadeMedia: number;
+    eeRetrabalhoQuantidadeAlta: number;
+    eeRetrabalhoPFBaixa: number;
+    eeRetrabalhoPFMedia: number;
+    eeRetrabalhoPFAlta: number;
+    ceFuncaoQuantidadeBaixa: number;
+    ceFuncaoQuantidadeMedia: number;
+    ceFuncaoQuantidadeAlta: number;
+    ceFuncaoPFBaixa: number;
+    ceFuncaoPFMedia: number;
+    ceFuncaoPFAlta: number;
+    ceRetrabalhoQuantidadeBaixa: number;
+    ceRetrabalhoQuantidadeMedia: number;
+    ceRetrabalhoQuantidadeAlta: number;
+    ceRetrabalhoPFBaixa: number;
+    ceRetrabalhoPFMedia: number;
+    ceRetrabalhoPFAlta: number;
+    seFuncaoQuantidadeBaixa: number;
+    seFuncaoQuantidadeMedia: number;
+    seFuncaoQuantidadeAlta: number;
+    seFuncaoPFBaixa: number;
+    seFuncaoPFMedia: number;
+    seFuncaoPFAlta: number;
+    seRetrabalhoQuantidadeBaixa: number;
+    seRetrabalhoQuantidadeMedia: number;
+    seRetrabalhoQuantidadeAlta: number;
+    seRetrabalhoPFBaixa: number;
+    seRetrabalhoPFMedia: number;
+    seRetrabalhoPFAlta: number;
+    
+    constructor () {}
+}

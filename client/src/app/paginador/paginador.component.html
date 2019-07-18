@@ -1,0 +1,10 @@
+<div class="paginador-bottom">
+  <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+  <a *ngFor="let option of options" style="display: inline;" (click)="setRows(option.rows)">
+    {{option.rows}}
+  </a>
+</div>
+<div class="pesquisa-paginador-bottom">
+  <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+  <input #page type="text" class="input-pesquisar-pagina form-control" (keyup.enter)="setPage(page.value)" />
+</div>

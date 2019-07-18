@@ -1,0 +1,1483 @@
+<header class="header">
+  <cabecalho></cabecalho>
+  <modalajuda></modalajuda>
+  <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Adicionar Template'"></menucomponent>
+</header>
+<article>
+<div class="container">
+  <!-- Corpo da página -->
+  <p-messages [closable]="false"></p-messages>
+  <form novalidate>
+    <fieldset>
+      <h2 (click)="isCollapsed = !isCollapsed" href="#filtros" aria-expanded="true" aria-controls="filtros">
+        <i class="material-icons">expand_more</i>
+        {{tituloPagina}}
+      </h2>
+      <div id="filtros" [collapse]="isCollapsed" class="collapse in" aria-expanded="false" aria-controls="filtros">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="form-group">
+              <label for="templateNome" class="control-label obrigatorio">Nome do Template</label>
+              <input id="templateNome" name="template.nome" type="text" [(ngModel)]="template.nome"
+                class="form-control" required [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="templateSituacao" class="control-label obrigatorio">Situação</label>
+              <p-dropdown id="templateSituacao" name="templateSituacao" [options]="situacaoList" [(ngModel)]="template.situacao" [disabled]="readOnly"></p-dropdown>
+            </div>
+          </div>
+        </div>
+        <!-- CONTAGEM -->
+        <h2>Contagem</h2>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label">Aba</label>
+              <input id="templateContagemProjetoAba" name="templateContagemProjetoAba" type="text" [(ngModel)]="templateContagem.projetoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label">Referência</label>
+              <input id="templateContagemProjetoReferencia" name="templateContagemProjetoReferencia" type="text" [(ngModel)]="templateContagem.projetoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Propósito e Escopo</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label">Aba</label>
+              <input id="templateContagemPropositoEscopoAba" name="templateContagemPropositoEscopoAba" type="text" [(ngModel)]="templateContagem.propositoEscopoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label">Referência</label>
+              <input id="templateContagemPropositoEscopoReferencia" name="templateContagemPropositoEscopoReferencia" type="text" [(ngModel)]="templateContagem.propositoEscopoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Linguagem</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemLinguagemAba" name="templateContagemLinguagemAba" type="text" [(ngModel)]="templateContagem.linguagemAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemLinguagemReferencia" name="templateContagemLinguagemReferencia" type="text" [(ngModel)]="templateContagem.linguagemReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Fronteira</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemFronteiraAba" name="templateContagemFronteiraAba" type="text" [(ngModel)]="templateContagem.fronteiraAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemFronteiraReferencia" name="templateContagemFronteiraReferencia" type="text" [(ngModel)]="templateContagem.fronteiraReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTipoProjetoAba" name="templateContagemTipoProjetoAba" type="text" [(ngModel)]="templateContagem.tipoProjetoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTipoProjetoReferencia" name="templateContagemTipoProjetoReferencia" type="text" [(ngModel)]="templateContagem.tipoProjetoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Total PF Demanda</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTotalPfDemandaAba" name="templateContagemTotalPfDemandaAba" type="text" [(ngModel)]="templateContagem.totalPfDemandaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTotalPfDemandaReferencia" name="templateContagemTotalPfDemandaReferencia" type="text" [(ngModel)]="templateContagem.totalPfDemandaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Contagem</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTipoContagemAba" name="templateContagemTipoContagemAba" type="text" [(ngModel)]="templateContagem.tipoContagemAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTipoContagemReferencia" name="templateContagemTipoContagemReferencia" type="text" [(ngModel)]="templateContagem.tipoContagemReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">PF Função de Dados</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPfFuncaoDadosAba" name="templateContagemPfFuncaoDadosAba" type="text" [(ngModel)]="templateContagem.pfFuncaoDadosAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPfFuncaoDadosReferencia" name="templateContagemPfFuncaoDadosReferencia" type="text" [(ngModel)]="templateContagem.pfFuncaoDadosReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Plataforma</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPlataformaAba" name="templateContagemPlataformaAba" type="text" [(ngModel)]="templateContagem.plataformaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPlataformaReferencia" name="templateContagemPlataformaReferencia" type="text" [(ngModel)]="templateContagem.plataformaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">PF Retrabalho</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPfRetrabalhoAba" name="templateContagemPfRetrabalhoAba" type="text" [(ngModel)]="templateContagem.pfRetrabalhoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPfRetrabalhoReferencia" name="templateContagemPfRetrabalhoReferencia" type="text" [(ngModel)]="templateContagem.pfRetrabalhoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Líder do Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemLiderProjetoAba" name="templateContagemLiderProjetoAba" type="text" [(ngModel)]="templateContagem.liderProjetoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemLiderProjetoReferencia" name="templateContagemLiderProjetoReferencia" type="text" [(ngModel)]="templateContagem.liderProjetoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">PF Função Transacional</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPfFuncaoTransacionalAba" name="templateContagemPfFuncaoTransacionalAba" type="text" [(ngModel)]="templateContagem.pfFuncaoTransacionalAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemPfFuncaoTransacionalReferencia" name="templateContagemPfFuncaoTransacionalReferencia" type="text" [(ngModel)]="templateContagem.pfFuncaoTransacionalReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Observações</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemObservacoesAba" name="templateContagemObservacoesAba" type="text" [(ngModel)]="templateContagem.observacoesAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemObservacoesReferencia" name="templateContagemObservacoesReferencia" type="text" [(ngModel)]="templateContagem.observacoesReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Total PF Bruto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTotalPfBrutoAba" name="templateContagemTotalPfBrutoAba" type="text" [(ngModel)]="templateContagem.totalPfBrutoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemTotalPfBrutoReferencia" name="templateContagemTotalPfBrutoReferencia" type="text" [(ngModel)]="templateContagem.totalPfBrutoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Artefatos Usados</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemArtefatosUsadosAba" name="templateContagemArtefatosUsadosAba" type="text" [(ngModel)]="templateContagem.artefatosUsadosAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemArtefatorUsadosReferencia" name="templateContagemArtefatorUsadosReferencia" type="text" [(ngModel)]="templateContagem.artefatorUsadosReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Scope Creep</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemScopeCreepAba" name="templateContagemScopeCreepAba" type="text" [(ngModel)]="templateContagem.scopeCreepAba"
+              class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemScopeCreepReferencia" name="templateContagemScopeCreepReferencia" type="text" [(ngModel)]="templateContagem.scopeCreepReferencia"
+              class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Método de Contagem</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemMetodoContagemAba" name="templateContagemMetodoContagemAba" type="text" [(ngModel)]="templateContagem.metodoContagemAba"
+              class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateContagemMetodoContagemReferencia" name="templateContagemMetodoContagemReferencia" type="text" [(ngModel)]="templateContagem.metodoContagemReferencia"
+              class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+          
+          <!-- ALI  -->
+        <h2>ALI</h2>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Nome da Funcionalidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeALInomeFuncionalidadeAba" name="templateFuncionalidadeALInomeFuncionalidadeAba" type="text" [(ngModel)]="templateFuncionalidadeAli.nomeFuncionalidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeALInomeFuncionalidadeReferencia" name="templateFuncionalidadeALInomeFuncionalidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.nomeFuncionalidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">TD's</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeALItdAba" name="templateFuncionalidadeALItdAba" type="text" [(ngModel)]="templateFuncionalidadeAli.tdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeALItdReferencia" name="templateFuncionalidadeALItdReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.tdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALItipoAba" name="templateFuncionalidadeALItipoAba" type="text" [(ngModel)]="templateFuncionalidadeAli.tipoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALItipoReferencia" name="templateFuncionalidadeALItipoReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.tipoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória TD</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALImemoriaTdAba" name="templateFuncionalidadeALImemoriaTdAba" type="text" [(ngModel)]="templateFuncionalidadeAli.memoriaTdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALImemoriaTdReferencia" name="templateFuncionalidadeALImemoriaTdReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.memoriaTdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo da Demanda</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALItipoDemandaAba" name="templateFuncionalidadeALItipoDemandaAba" type="text" [(ngModel)]="templateFuncionalidadeAli.tipoDemandaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALItipoDemandaReferencia" name="templateFuncionalidadeALItipoDemandaReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.tipoDemandaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Classificação</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIclassificacaoAba" name="templateFuncionalidadeALIclassificacaoAba" type="text" [(ngModel)]="templateFuncionalidadeAli.classificacaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIclassificacaoReferencia" name="templateFuncionalidadeALIclassificacaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.classificacaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIrlArAba" name="templateFuncionalidadeALIrlArAba" type="text" [(ngModel)]="templateFuncionalidadeAli.rlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIrlArReferencia" name="templateFuncionalidadeALIrlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.rlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Complexidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIcomplexidadeAba" name="templateFuncionalidadeALIcomplexidadeAba" type="text" [(ngModel)]="templateFuncionalidadeAli.complexidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIcomplexidadeReferencia" name="templateFuncionalidadeALIcomplexidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.complexidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALImemoriaRlArAba" name="templateFuncionalidadeALImemoriaRlArAba" type="text" [(ngModel)]="templateFuncionalidadeAli.memoriaRlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALImemoriaRlArReferencia" name="templateFuncionalidadeALImemoriaRlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.memoriaRlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Ponto de Função</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIpontoFuncaoAba" name="templateFuncionalidadeALIpontoFuncaoAba" type="text" [(ngModel)]="templateFuncionalidadeAli.pontoFuncaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIpontoFuncaoReferencia" name="templateFuncionalidadeALIpontoFuncaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.pontoFuncaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Rastreabilidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIrastreabilidadeAba" name="templateFuncionalidadeALIrastreabilidadeAba" type="text" [(ngModel)]="templateFuncionalidadeAli.rastreabilidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIrastreabilidadeReferencia" name="templateFuncionalidadeALIrastreabilidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.rastreabilidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Divergências</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIdivergenciasAba" name="templateFuncionalidadeALIdivergenciasAba" type="text" [(ngModel)]="templateFuncionalidadeAli.divergenciasAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeALIdivergenciasReferencia" name="templateFuncionalidadeALIdivergenciasReferencia" type="text" [(ngModel)]="templateFuncionalidadeAli.divergenciasReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+
+        <!-- AIE -->
+        <h2>AIE</h2>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Nome da Funcionalidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeAIEnomeFuncionalidadeAba" name="templateFuncionalidadeAIEnomeFuncionalidadeAba" type="text" [(ngModel)]="templateFuncionalidadeAie.nomeFuncionalidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeAIEnomeFuncionalidadeReferencia" name="templateFuncionalidadeAIEnomeFuncionalidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.nomeFuncionalidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">TD's</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeAIEtdAba" name="templateFuncionalidadeAIEtdAba" type="text" [(ngModel)]="templateFuncionalidadeAie.tdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeAIEtdReferencia" name="templateFuncionalidadeAIEtdReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.tdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEtipoAba" name="templateFuncionalidadeAIEtipoAba" type="text" [(ngModel)]="templateFuncionalidadeAie.tipoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEtipoReferencia" name="templateFuncionalidadeAIEtipoReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.tipoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória TD</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEmemoriaTdAba" name="templateFuncionalidadeAIEmemoriaTdAba" type="text" [(ngModel)]="templateFuncionalidadeAie.memoriaTdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEmemoriaTdReferencia" name="templateFuncionalidadeAIEmemoriaTdReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.memoriaTdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo da Demanda</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEtipoDemandaAba" name="templateFuncionalidadeAIEtipoDemandaAba" type="text" [(ngModel)]="templateFuncionalidadeAie.tipoDemandaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEtipoDemandaReferencia" name="templateFuncionalidadeAIEtipoDemandaReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.tipoDemandaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Classificação</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEclassificacaoAba" name="templateFuncionalidadeAIEclassificacaoAba" type="text" [(ngModel)]="templateFuncionalidadeAie.classificacaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEclassificacaoReferencia" name="templateFuncionalidadeAIEclassificacaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.classificacaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIErlArAba" name="templateFuncionalidadeAIErlArAba" type="text" [(ngModel)]="templateFuncionalidadeAie.rlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIErlArReferencia" name="templateFuncionalidadeAIErlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.rlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Complexidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEcomplexidadeAba" name="templateFuncionalidadeAIEcomplexidadeAba" type="text" [(ngModel)]="templateFuncionalidadeAie.complexidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEcomplexidadeReferencia" name="templateFuncionalidadeAIEcomplexidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.complexidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEmemoriaRlArAba" name="templateFuncionalidadeAIEmemoriaRlArAba" type="text" [(ngModel)]="templateFuncionalidadeAie.memoriaRlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEmemoriaRlArReferencia" name="templateFuncionalidadeAIEmemoriaRlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.memoriaRlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Ponto de Função</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEpontoFuncaoAba" name="templateFuncionalidadeAIEpontoFuncaoAba" type="text" [(ngModel)]="templateFuncionalidadeAie.pontoFuncaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEpontoFuncaoReferencia" name="templateFuncionalidadeAIEpontoFuncaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.pontoFuncaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Rastreabilidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIErastreabilidadeAba" name="templateFuncionalidadeAIErastreabilidadeAba" type="text" [(ngModel)]="templateFuncionalidadeAie.rastreabilidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIErastreabilidadeReferencia" name="templateFuncionalidadeAIErastreabilidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.rastreabilidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Divergências</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEdivergenciasAba" name="templateFuncionalidadeAIEdivergenciasAba" type="text" [(ngModel)]="templateFuncionalidadeAie.divergenciasAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeAIEdivergenciasReferencia" name="templateFuncionalidadeAIEdivergenciasReferencia" type="text" [(ngModel)]="templateFuncionalidadeAie.divergenciasReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+
+        <!-- EE -->
+        <h2>EE</h2>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Nome da Funcionalidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeEEnomeFuncionalidadeAba" name="templateFuncionalidadeEEnomeFuncionalidadeAba" type="text" [(ngModel)]="templateFuncionalidadeEE.nomeFuncionalidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeEEnomeFuncionalidadeReferencia" name="templateFuncionalidadeEEnomeFuncionalidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.nomeFuncionalidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">TD's</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeEEtdAba" name="templateFuncionalidadeEEtdAba" type="text" [(ngModel)]="templateFuncionalidadeEE.tdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeEEtdReferencia" name="templateFuncionalidadeEEtdReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.tdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEtipoAba" name="templateFuncionalidadeEEtipoAba" type="text" [(ngModel)]="templateFuncionalidadeEE.tipoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEtipoReferencia" name="templateFuncionalidadeEEtipoReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.tipoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória TD</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEmemoriaTdAba" name="templateFuncionalidadeEEmemoriaTdAba" type="text" [(ngModel)]="templateFuncionalidadeEE.memoriaTdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEmemoriaTdReferencia" name="templateFuncionalidadeEEmemoriaTdReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.memoriaTdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo da Demanda</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEtipoDemandaAba" name="templateFuncionalidadeEEtipoDemandaAba" type="text" [(ngModel)]="templateFuncionalidadeEE.tipoDemandaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEtipoDemandaReferencia" name="templateFuncionalidadeEEtipoDemandaReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.tipoDemandaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Classificação</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEclassificacaoAba" name="templateFuncionalidadeEEclassificacaoAba" type="text" [(ngModel)]="templateFuncionalidadeEE.classificacaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEclassificacaoReferencia" name="templateFuncionalidadeEEclassificacaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.classificacaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEErlArAba" name="templateFuncionalidadeEErlArAba" type="text" [(ngModel)]="templateFuncionalidadeEE.rlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEErlArReferencia" name="templateFuncionalidadeEErlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.rlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Complexidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEcomplexidadeAba" name="templateFuncionalidadeEEcomplexidadeAba" type="text" [(ngModel)]="templateFuncionalidadeEE.complexidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEcomplexidadeReferencia" name="templateFuncionalidadeEEcomplexidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.complexidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEmemoriaRlArAba" name="templateFuncionalidadeEEmemoriaRlArAba" type="text" [(ngModel)]="templateFuncionalidadeEE.memoriaRlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEmemoriaRlArReferencia" name="templateFuncionalidadeEEmemoriaRlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.memoriaRlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Ponto de Função</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEpontoFuncaoAba" name="templateFuncionalidadeEEpontoFuncaoAba" type="text" [(ngModel)]="templateFuncionalidadeEE.pontoFuncaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEpontoFuncaoReferencia" name="templateFuncionalidadeEEpontoFuncaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.pontoFuncaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Rastreabilidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEErastreabilidadeAba" name="templateFuncionalidadeEErastreabilidadeAba" type="text" [(ngModel)]="templateFuncionalidadeEE.rastreabilidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEErastreabilidadeReferencia" name="templateFuncionalidadeEErastreabilidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.rastreabilidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Divergências</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEdivergenciasAba" name="templateFuncionalidadeEEdivergenciasAba" type="text" [(ngModel)]="templateFuncionalidadeEE.divergenciasAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeEEdivergenciasReferencia" name="templateFuncionalidadeEEdivergenciasReferencia" type="text" [(ngModel)]="templateFuncionalidadeEE.divergenciasReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+
+        <!-- CE -->
+        <h2>CE</h2>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Nome da Funcionalidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeCEnomeFuncionalidadeAba" name="templateFuncionalidadeCEnomeFuncionalidadeAba" type="text" [(ngModel)]="templateFuncionalidadeCE.nomeFuncionalidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeCEnomeFuncionalidadeReferencia" name="templateFuncionalidadeCEnomeFuncionalidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.nomeFuncionalidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">TD's</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeCEtdAba" name="templateFuncionalidadeCEtdAba" type="text" [(ngModel)]="templateFuncionalidadeCE.tdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeCEtdReferencia" name="templateFuncionalidadeCEtdReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.tdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEtipoAba" name="templateFuncionalidadeCEtipoAba" type="text" [(ngModel)]="templateFuncionalidadeCE.tipoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEtipoReferencia" name="templateFuncionalidadeCEtipoReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.tipoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória TD</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEmemoriaTdAba" name="templateFuncionalidadeCEmemoriaTdAba" type="text" [(ngModel)]="templateFuncionalidadeCE.memoriaTdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEmemoriaTdReferencia" name="templateFuncionalidadeCEmemoriaTdReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.memoriaTdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo da Demanda</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEtipoDemandaAba" name="templateFuncionalidadeCEtipoDemandaAba" type="text" [(ngModel)]="templateFuncionalidadeCE.tipoDemandaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEtipoDemandaReferencia" name="templateFuncionalidadeCEtipoDemandaReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.tipoDemandaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Classificação</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEclassificacaoAba" name="templateFuncionalidadeCEclassificacaoAba" type="text" [(ngModel)]="templateFuncionalidadeCE.classificacaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEclassificacaoReferencia" name="templateFuncionalidadeCEclassificacaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.classificacaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCErlArAba" name="templateFuncionalidadeCErlArAba" type="text" [(ngModel)]="templateFuncionalidadeCE.rlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCErlArReferencia" name="templateFuncionalidadeCErlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.rlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Complexidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEcomplexidadeAba" name="templateFuncionalidadeCEcomplexidadeAba" type="text" [(ngModel)]="templateFuncionalidadeCE.complexidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEcomplexidadeReferencia" name="templateFuncionalidadeCEcomplexidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.complexidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEmemoriaRlArAba" name="templateFuncionalidadeCEmemoriaRlArAba" type="text" [(ngModel)]="templateFuncionalidadeCE.memoriaRlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEmemoriaRlArReferencia" name="templateFuncionalidadeCEmemoriaRlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.memoriaRlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Ponto de Função</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEpontoFuncaoAba" name="templateFuncionalidadeCEpontoFuncaoAba" type="text" [(ngModel)]="templateFuncionalidadeCE.pontoFuncaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEpontoFuncaoReferencia" name="templateFuncionalidadeCEpontoFuncaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.pontoFuncaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Rastreabilidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCErastreabilidadeAba" name="templateFuncionalidadeCErastreabilidadeAba" type="text" [(ngModel)]="templateFuncionalidadeCE.rastreabilidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCErastreabilidadeReferencia" name="templateFuncionalidadeCErastreabilidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.rastreabilidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Divergências</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEdivergenciasAba" name="templateFuncionalidadeCEdivergenciasAba" type="text" [(ngModel)]="templateFuncionalidadeCE.divergenciasAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeCEdivergenciasReferencia" name="templateFuncionalidadeCEdivergenciasReferencia" type="text" [(ngModel)]="templateFuncionalidadeCE.divergenciasReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+
+        <!-- SE -->
+        <h2>SE</h2>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">Nome da Funcionalidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeSEnomeFuncionalidadeAba" name="templateFuncionalidadeSEnomeFuncionalidadeAba" type="text" [(ngModel)]="templateFuncionalidadeSE.nomeFuncionalidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeSEnomeFuncionalidadeReferencia" name="templateFuncionalidadeSEnomeFuncionalidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.nomeFuncionalidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="display: grid;margin-top: 8px;">&nbsp;</label>
+              <label class="control-label" style="display: grid;margin-top: 8px;">TD's</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Aba</label>
+              <input id="templateFuncionalidadeSEtdAba" name="templateFuncionalidadeSEtdAba" type="text" [(ngModel)]="templateFuncionalidadeSE.tdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" style="margin-top: 8px;">Referência</label>
+              <input id="templateFuncionalidadeSEtdReferencia" name="templateFuncionalidadeSEtdReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.tdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo de Projeto</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEtipoAba" name="templateFuncionalidadeSEtipoAba" type="text" [(ngModel)]="templateFuncionalidadeSE.tipoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEtipoReferencia" name="templateFuncionalidadeSEtipoReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.tipoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória TD</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEmemoriaTdAba" name="templateFuncionalidadeSEmemoriaTdAba" type="text" [(ngModel)]="templateFuncionalidadeSE.memoriaTdAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEmemoriaTdReferencia" name="templateFuncionalidadeSEmemoriaTdReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.memoriaTdReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Tipo da Demanda</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEtipoDemandaAba" name="templateFuncionalidadeSEtipoDemandaAba" type="text" [(ngModel)]="templateFuncionalidadeSE.tipoDemandaAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEtipoDemandaReferencia" name="templateFuncionalidadeSEtipoDemandaReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.tipoDemandaReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Classificação</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEclassificacaoAba" name="templateFuncionalidadeSEclassificacaoAba" type="text" [(ngModel)]="templateFuncionalidadeSE.classificacaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEclassificacaoReferencia" name="templateFuncionalidadeSEclassificacaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.classificacaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSErlArAba" name="templateFuncionalidadeSErlArAba" type="text" [(ngModel)]="templateFuncionalidadeSE.rlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSErlArReferencia" name="templateFuncionalidadeSErlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.rlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Complexidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEcomplexidadeAba" name="templateFuncionalidadeSEcomplexidadeAba" type="text" [(ngModel)]="templateFuncionalidadeSE.complexidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEcomplexidadeReferencia" name="templateFuncionalidadeSEcomplexidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.complexidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Memória RL / AR</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEmemoriaRlArAba" name="templateFuncionalidadeSEmemoriaRlArAba" type="text" [(ngModel)]="templateFuncionalidadeSE.memoriaRlArAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEmemoriaRlArReferencia" name="templateFuncionalidadeSEmemoriaRlArReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.memoriaRlArReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Ponto de Função</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEpontoFuncaoAba" name="templateFuncionalidadeSEpontoFuncaoAba" type="text" [(ngModel)]="templateFuncionalidadeSE.pontoFuncaoAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEpontoFuncaoReferencia" name="templateFuncionalidadeSEpontoFuncaoReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.pontoFuncaoReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Rastreabilidade</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSErastreabilidadeAba" name="templateFuncionalidadeSErastreabilidadeAba" type="text" [(ngModel)]="templateFuncionalidadeSE.rastreabilidadeAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSErastreabilidadeReferencia" name="templateFuncionalidadeSErastreabilidadeReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.rastreabilidadeReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="control-label" style="display: grid;margin-top: 8px;">Divergências</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEdivergenciasAba" name="templateFuncionalidadeSEdivergenciasAba" type="text" [(ngModel)]="templateFuncionalidadeSE.divergenciasAba"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input id="templateFuncionalidadeSEdivergenciasReferencia" name="templateFuncionalidadeSEdivergenciasReferencia" type="text" [(ngModel)]="templateFuncionalidadeSE.divergenciasReferencia"
+                class="form-control" [disabled]="readOnly" />
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="form-group">
+          <button (click)="onClickVoltar()" class="btn btn-default" type="button">Voltar</button>
+          <button (click)="onClickLimpar()" *ngIf="!readOnly" class="btn btn-default" type="reset">Limpar</button>
+          <button (click)="onClickAcao()" *ngIf="!readOnly" class="btn btn-primary" type="button">{{tituloBotaoAcao}}</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</article>

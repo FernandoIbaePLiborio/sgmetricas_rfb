@@ -1,0 +1,26 @@
+[
+    {
+        "chave":"ENDERECO_INFO_1",
+        "texto":"Endereço incluído com sucesso."
+    },
+    {
+        "chave":"ENDERECO_INFO_2",
+        "texto":"Endereço alterado com sucesso."
+    },
+    {
+        "chave":"TEMPLATE_INFO_1",
+        "texto":"Template incluído com sucesso."
+    },
+    {
+        "chave":"TEMPLATE_INFO_2",
+        "texto":"Template alterado com sucesso."
+    },
+    {
+        "chave":"TEMPLATE_INFO_3",
+        "texto":"Template excluído com sucesso."
+    },
+    {
+        "chave":"CONTAGEM_INFO_2",
+        "texto":"Contagem alterada com sucesso."
+    }
+]

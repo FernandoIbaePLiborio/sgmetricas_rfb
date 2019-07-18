@@ -1,0 +1,258 @@
+<header class="header">
+  <cabecalho></cabecalho>
+  <modalajuda></modalajuda>
+  <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Consultar Contagem'"></menucomponent>
+</header>
+<article>
+  <div class="container">
+    <loader></loader>
+    <!-- Corpo da página -->
+    <!-- Filtros de pesquisa -->
+    <p-messages [closable]="false"></p-messages>
+    <form novalidate>
+      <fieldset>
+        <h2 (click)="isCollapsed = !isCollapsed" href="#filtros" aria-expanded="true" aria-controls="filtros">
+          <i class="material-icons">expand_more</i>
+          Filtros de pesquisa
+        </h2>
+        <div id="filtros" [collapse]="isCollapsed" class="collapse in" aria-expanded="false" aria-controls="filtros">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="projeto" class="control-label">Projeto</label>
+                <input id="projeto" name="projeto" type="text" [(ngModel)]="filtro.projeto" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="linguagem" class="control-label">Linguagem</label>
+                <input id="linguagem" name="linguagem" type="text" [(ngModel)]="filtro.linguagem" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="tipoContagem" class="control-label">Tipo da Contagem</label>
+                <p-dropdown id="tipoContagem" name="tipoContagem" [options]="tipoContagemList" [(ngModel)]="filtro.tipoContagem"></p-dropdown>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="tipoProjeto" class="control-label">Tipo do Projeto</label>
+                <p-dropdown id="tipoProjeto" name="tipoProjeto" [options]="tipoProjetoList" [(ngModel)]="filtro.tipoProjeto"></p-dropdown>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="propositoEscopo" class="control-label">Propósito e Escopo</label>
+                <input id="propositoEscopo" name="propositoEscopo" type="text" [(ngModel)]="filtro.propositoEscopo" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fornecedor" class="control-label">Fornecedor</label>
+                <p-dropdown id="fornecedor" name="fornecedor" [options]="fornecedorList" [(ngModel)]="filtro.fornecedor"></p-dropdown>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fronteira" class="control-label">Fronteira</label>
+                <input id="fronteira" name="fronteira" type="text" [(ngModel)]="filtro.fronteira" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <table style="width: 100%">
+                <tr>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">Data Importação</label>
+                      <p-calendar id="dataImportacaoDe" name="dataImportacaoDe" [(ngModel)]="filtro.dataImportacaoDe" dateFormat="dd/mm/yy" showIcon="true"
+                        [locale]="pt"></p-calendar>
+                    </div>
+                  </td>
+                  <td style="padding-top: 10px; text-align: center;">até</td>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <p-calendar id="dataImportacaoAte" name="dataImportacaoAte" [(ngModel)]="filtro.dataImportacaoAte" dateFormat="dd/mm/yy"
+                        showIcon="true" [locale]="pt"></p-calendar>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <table style="width: 100%">
+                <tr>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">Ponto de Função Bruto</label>
+                      <input currencyMask id="pfBrutoDe" name="pfBrutoDe" type="text" [(ngModel)]="filtro.pfBrutoDe" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                        class="form-control">
+                    </div>
+                  </td>
+                  <td style="padding-top: 10px; text-align: center;">a</td>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input currencyMask id="pfBrutoAte" name="pfBrutoDe" type="text" [(ngModel)]="filtro.pfBrutoAte" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                        class="form-control">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <table style="width: 100%">
+                <tr>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">Ponto de Função Demanda</label>
+                      <input currencyMask id="pfDemandaDe" name="pfDemandaDe" type="text" [(ngModel)]="filtro.pfDemandaDe" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                        class="form-control">
+                    </div>
+                  </td>
+                  <td style="padding-top: 10px; text-align: center;">a</td>
+                  <td style="width:45%">
+                    <div class="form-group">
+                      <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input currencyMask id="pfDemandaAte" name="pfDemandaAte" type="text" [(ngModel)]="filtro.pfDemandaAte" [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+                        class="form-control">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="responsavel" class="control-label">Responsável</label>
+                <input id="responsavel" name="responsavel" type="text" [(ngModel)]="filtro.responsavel" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="numeroDemanda" class="control-label">Número da Demanda</label>
+                <input id="numeroDemanda" name="numeroDemanda" type="text" [(ngModel)]="filtro.numeroDemanda" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="situacao" class="control-label">Situação</label>
+                <p-dropdown id="situacao" name="situacao" [options]="situacaoList" [(ngModel)]="filtro.situacao"></p-dropdown>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button (click)="onClickLimpar()" class="btn btn-default" type="reset">Limpar</button>
+            <button (click)="onClickBuscar()" class="btn btn-primary" type="button">Buscar</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    
+    <div class="paginador">
+      <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+      <a *ngFor="let option of itensPorPagina" style="display: inline;" (click)="setRows(option.rows)" class="link">
+        {{option.rows}}
+      </a>
+    </div>
+    <div class="pesquisa-paginador-top">
+      <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+      <input #pageTop type="text" class="input-pesquisar-pagina-top form-control" (keyup.enter)="setPage(pageTop.value)" />
+    </div>
+    <p-dataTable #dataTable [value]="result.itensPagina" [paginatorPosition]="'both'" [responsive]="true" [pageLinks]="5"
+      [lazy]="true" [rows]="10" [paginator]="true" [style]="{'width':'100%'}" (onFilter)="setFilter($event)" (onSort)="setSortOrder($event)" (onPage)="loadData($event)"
+      [totalRecords]="result.paginador.numeroTotalItens" [loading]="loading" [responsive]="true">
+      <ng-template pTemplate="emptymessage">
+        Nenhum registro encontrado para a consulta.
+      </ng-template>
+      <p-header>
+        <table class="table table-striped tabela" style="width:100%">
+          <caption style="width:100%">CONTAGENS</caption>
+          <thead>
+            <tr class="tabela-acoes">
+              <td colspan="12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="javascript:void(0)" (click)="exportXLS()" title="XLS"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+                    &nbsp;
+                    <a href="javascript:void(0)" (click)="exportPDF()" title="PDF"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </thead>
+        </table>
+      </p-header>
+      <p-column header="Ações" [style]="{'width':'60px','text-align':'center'}">
+        <ng-template let-item="rowData" pTemplate="body">
+          <ng-template #popTemplate>
+            <div class='btn-group-vertical' role='group'>
+              <button type="button" class="btn btn-default" [routerLink]="['/pages', 'contagem-edicao', {id: item.id, acao: 'DETALHES'}]">Detalhes</button>
+              <button (click)="onClickAlterar(item)" type='button' class='btn btn-default'>Alterar</button>
+              <button type='button' class='btn btn-default' (click)='onClickDelete(item)'>Excluir</button>
+            </div>
+          </ng-template>
+          <button type="button" class="btn btn-link" [outsideClick]="popTemplate" [popover]="popTemplate" placement="right">
+            <i class="material-icons icon-24">menu</i>
+          </button>
+        </ng-template>
+      </p-column>
+      <p-column field="projeto" header="Projeto" [filter]="true" [sortable]="true"></p-column>
+      <p-column field="tipoContagem" header="Tipo Contagem" [filter]="true" [sortable]="true">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getTipoContagemDescricao(item['tipoContagem'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="dataImportacao" header="Data" [filter]="true" [sortable]="true">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{item['dataImportacao'] | date: 'dd/MM/yyyy'}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="tipoProjeto" header="Tipo Projeto" [filter]="true" [sortable]="true">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getTipoProjetoDescricao(item['tipoProjeto'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="responsavel" header="Responsável" [filter]="true" [sortable]="true"></p-column>
+      <p-column field="totalPfBruto" header="PF Bruto" [filter]="true" [sortable]="true" [style]="{'text-align':'right'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getFormatarDecimal(item['totalPfBruto'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="totalPfDemanda" header="PF Demanda" [filter]="true" [sortable]="true" [style]="{'text-align':'right'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getFormatarDecimal(item['totalPfDemanda'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="situacao" header="Situação" [filter]="true" [sortable]="true">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getSituacaoDescricao(item['situacao'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="numeroDemanda" header="Demanda" [filter]="true" [sortable]="true"></p-column>
+      <p-footer>
+        Total de Registros: {{result.paginador.numeroTotalItens}}
+      </p-footer>
+    </p-dataTable>
+    <div class="paginador-bottom">
+      <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+      <a *ngFor="let option of itensPorPagina" style="display: inline;" (click)="setRows(option.rows)" class="link">
+        {{option.rows}}
+      </a>
+    </div>
+    <div class="pesquisa-paginador-bottom">
+      <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+      <input #page type="text" class="input-pesquisar-pagina form-control" (keyup.enter)="setPage(page.value)" />
+    </div>
+  </div>
+  <p-confirmDialog class="botao-confirma" acceptLabel="Sim" rejectLabel="Não" header="Confirmação" icon="pi pi-exclamation-triangle" width="500"></p-confirmDialog>
+</article>

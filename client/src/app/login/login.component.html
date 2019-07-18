@@ -1,0 +1,55 @@
+<article>
+  <div class="container">
+    <!-- Corpo da página -->
+    <div class="sombra">
+      <!-- Cabeçalho da página -->
+      <header class="cabecalho">
+        <div class="sistema">
+          <h1 class="logo"><a href="index.html">Receita Federal</a></h1>
+          <p class="titulo">Acesso a Suíte de Aplicativos da Receita Federal</p>
+        </div>
+      </header>
+      <!-- Corpo da página -->
+      <p-messages [closable]="false"></p-messages>
+      <div class="conteudo">
+        <!-- Formulário de login -->
+        <div class="acesso">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="inputCPF" class="control-label">CPF</label>
+                <input id="inputCPF" type="text" [(ngModel)]="credentials.login" name="credentials.login" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputSenha" class="control-label">Senha Rede (HOD)</label>
+                <input id="inputSenha" type="password" [(ngModel)]="credentials.password" name="credentials.password" class="form-control">
+              </div>
+              <div class="form-group">
+                <button (click)="onClickSubmit()" class="btn btn-primary" type="button">Avançar</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <p class="control-label">Acesso por Certificado Digital</p>
+              <div class="certificado-digital"></div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <!-- Informações ao usuário -->
+        <div id="informativo">
+          <p>As informações contidas nos sistemas da Administração Pública são protegidas por sigilo.</p>
+          <p>As seguintes condutas constituem infrações ou ilícitos que sujeitam o usuário deste sistema à responsabilização administrativa, penal e cível:</p>
+          <ol type="a">
+            <li>o acesso não autorizado;</li>
+            <li>o acesso não motivado por necessidade de serviço;</li>
+            <li>a disponibilização voluntária ou acidental da senha de acesso;</li>
+            <li>a disponibilização não autorizada de informações contidas no sistema;</li>
+            <li>e a quebra do sigilo relativo a informações contidas no sistema.</li>
+          </ol>
+          <p>Todo e qualquer acesso é monitorado e controlado. Proteja sempre a sua senha. Quando encerrar as operações, tenha o cuidado de clicar a opção "Sair". Ao teclar a opção "Avançar", o usuário declara-se ciente das responsabilidades acima referidas.</p>
+          <p>Fundamento Legal: Constituição Federal, Código Penal, Código Tributário Nacional e Portaria SRF/Cotec 45/2004</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,64 @@
+<header class="header">
+  <cabecalho></cabecalho>
+  <modalajuda></modalajuda>
+  <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Importar Planilha'"></menucomponent>
+</header>
+<article>
+  <div class="container">
+    <loader></loader>
+    <!-- Corpo da página -->
+    <p-messages [closable]="false"></p-messages>
+    <form enctype="multipart/form-data" novalidate>
+      <fieldset>
+        <div id="filtros" [collapse]="isCollapsed" class="collapse in" aria-expanded="false" aria-controls="filtros">
+          <div class="row">
+            <div class="col-md-8 no-padding">
+              <div class="col-md-12">
+                <label class="control-label obrigatorio">Arquivo</label>
+                <div class="col-md-12 form-group upload-inline" style="padding: 0px !important">
+                  <input class="form-control no-background" name="arquivo" type="text" [(ngModel)]="arquivoSelecionado" disabled>
+                  <label for='upload-file' class="btn-upload">
+                    <i class="fa fa-plus"></i>Escolher</label>
+                  <input type="file" id='upload-file' style="display: none" accept="application/vnd.oasis.opendocument.spreadsheet" (change)="onFileSelected($event)">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="template" class="control-label obrigatorio">Template</label>
+                <p-dropdown id="template" name="template" [options]="templateList" [(ngModel)]="importacao.idTemplate"></p-dropdown>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="fornecedor" class="control-label obrigatorio">Fornecedor</label>
+                <p-dropdown id="fornecedor" name="fornecedor" [options]="fornecedorList" [(ngModel)]="importacao.fornecedor"></p-dropdown>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="numeroDemanda" class="control-label obrigatorio">Número da Demanda</label>
+                <input id="numeroDemanda" name="numeroDemanda" type="text" [(ngModel)]="importacao.numeroDemanda" class="form-control" required
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="data" class="control-label obrigatorio">Data e Hora</label>
+                <p-calendar id="data" name="data" [(ngModel)]="importacao.data" dateFormat="dd/mm/yy" showTime="true" showIcon="true" [locale]="pt"></p-calendar>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!-- FOOTER -->
+          <div class="form-group">
+            <button (click)="limpar()" class="btn btn-default" type="reset">Limpar</button>
+            <button (click)="importarArquivo()" class="btn btn-primary" type="button">Concluir</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</article>

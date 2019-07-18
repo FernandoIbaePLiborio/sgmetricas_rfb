@@ -1,0 +1,114 @@
+<!-- Breadcrumbs e funcionalidades -->
+<div class="container">
+  <nav class="navegacao">
+    <!-- Ativador do menu lateral -->
+    <div class="trigger">
+      <button (click)="hideMenu()" class="btn btn-default" type="button" id="navegacao">
+        <i class="material-icons icon-28">menu</i>
+      </button>
+    </div>
+    <!-- Breadcrumbs -->
+    <ol class="breadcrumb hidden-xs">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a class="active">{{tituloFuncionalidadeAtual}}</a>
+      </li>
+    </ol>
+    <!-- Funcionalidades -->
+    <div class="funcionalidade">
+      <a href="">{{tituloFuncionalidadeAtual}}</a>
+    </div>
+    <!-- Menu lateral -->
+    <div class="sidebar">
+      <div class="menu-lateral">
+        <!-- Menu do cabeçalho -->
+        <ul class="menu-cabecalho visible-xs">
+          <li class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="material-icons icon-24">apps</i>
+            </button>
+            <ul class="dropdown-menu aplicacoes">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="material-icons icon-24">person</i>
+            </button>
+            <ul class="dropdown-menu configuracoes">
+              <li><a href="#">Editar preferências</a></li>
+              <li><a href="#">Editar dados pessoais</a></li>
+              <li><a href="#">Organizar favoritos</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="material-icons icon-24">notifications</i>
+              <span class="badge">2</span>
+            </button>
+            <ul class="dropdown-menu mensagens">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="modal" data-target="#ajuda">
+              <i class="material-icons icon-24">help</i>
+            </button>
+          </li>
+          <li>
+            <button class="btn btn-primary dropdown-toggle" type="button">
+              <i class="material-icons icon-24">power_settings_new</i>
+            </button>
+          </li>
+        </ul>
+        <ul class="menu">
+          <li>
+            <a (click)="isCollapsed = !isCollapsed" class="raiz" style="cursor: pointer;">Menu</a>
+            <ul [collapse]="isCollapsed" class="menu nav-second-level collapse" aria-expanded="false">
+              <li>
+                <a href="#" [routerLink]="['/pages', 'inicio']">
+                  <i class="material-icons icon-24">home</i>
+                  <span>Início</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" [routerLink]="['/pages', 'contagem-consulta']">
+                  <i class="material-icons icon-24">trending_up</i>
+                  <span>Contagem</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" [routerLink]="['/pages', 'importacao']">
+                  <i class="material-icons icon-24">file_upload</i>
+                  <span>Importação</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" [routerLink]="['/pages', 'template-consulta']">
+                  <i class="material-icons icon-24">folder_open</i>
+                  <span>Template</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" [routerLink]="['/pages', 'relatorio-filtro']">
+                  <i class="material-icons icon-24">content_paste</i>
+                  <span>Relatório</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,71 @@
+<!-- Modal de ajuda -->
+<div class="modal fade" id="ajuda" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!-- Cabeçalho do modal -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="material-icons">close</i>
+        </button>
+        <p class="modal-title">
+          <i class="material-icons">help</i>
+          Ajuda contextual
+        </p>
+      </div>
+      <!-- Corpo do modal -->
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tbody><tr>
+            <td>
+              <span>Sistema:</span>
+              <strong class="text-uppercase">SA3</strong>
+            </td>
+            <td>
+              <span>Funcionalidade:</span>
+              <strong class="text-uppercase">Consultar banco de talentos</strong>
+            </td>
+          </tr>
+        </tbody></table>
+        <h2>Visão geral e perguntas frequentes</h2>
+        <p>Com vistas a implementar mais de um elemento da política de valorização do servidor, característica da nova gestão da Secretaria da Receita Federal do Brasil (RFB), foi desenvolvido o banco de talentos, regulamentado pela Portaria RFB nº 082, de 09 de janeiro de 2009, com o objetivo de registrar informações dos servidores ativos, lotados na RFB, relativas ao currículo e perfil, além de outras que subsidiarão as ações na área de gestão de pessoas.</p>
+        <p>O Banco de Talentos visa conferir um caráter dinâmico e participativo ao conceito tradicional dos currículos corporativos, de forma a assegurar o melhor aproveitamento das competências e a busca de sinergia entre os interesses pessoais e institucionais. Propõe-se a ser uma ferramenta de gestão de dupla via, por intermédio da qual a Administração conhece os talentos e competências existentes em sua estrutura, ao mesmo tempo, em que oferece aos servidores uma plataforma para exposição de sua motivação, experiência, capacitação, disposição e anseio de assumir novas responsabilidades, ou atuar como agente transformador da instituição.</p>
+        <ul class="faq">
+          <li>
+            <a role="button" data-toggle="collapse" href="#pergunta-1">
+              <span>Como faço para pesquisar servidores no Banco de Talentos?</span>
+            </a>
+            <div class="collapse" id="pergunta-1">
+              <div class="well">
+                ...
+              </div>
+            </div>
+          </li>
+          <li>
+            <a role="button" data-toggle="collapse" href="#pergunta-2">
+              <span>Como faço para visualizar o currículo do servidor?</span>
+            </a>
+            <div class="collapse" id="pergunta-2">
+              <div class="well">
+                ...
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p>Para mais informações, consulte o <a href="">Manual do Sistema SA3</a> ou mande sua dúvida para o Suporte Web:</p>
+        <form novalidate>
+          <div class="form-group">
+            <label class="control-label" for="duvida">Sua dúvida</label>
+            <textarea class="form-control" id="duvida"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+        <p>
+          <strong class="text-danger">O sistema está inacessível ou você encontrou um erro inesperado?</strong>
+          <a href="">Acionar a Central de Serviços</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

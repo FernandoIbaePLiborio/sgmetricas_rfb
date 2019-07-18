@@ -1,0 +1,70 @@
+<header class="header">
+    <cabecalho></cabecalho>
+    <modalajuda></modalajuda>
+    <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Adicionar Endereço'"></menucomponent>
+  </header>
+  <article>
+  <div class="container">
+    <!-- Corpo da página -->
+    
+    <p-messages [closable]="false"></p-messages>
+  
+    <form novalidate>
+      <fieldset>
+        <h2 (click)="isCollapsed = !isCollapsed" href="#filtros" aria-expanded="true" aria-controls="filtros">
+          <i class="material-icons">expand_more</i>
+          {{tituloPagina}}
+        </h2>
+        <div id="filtros" [collapse]="isCollapsed" class="collapse in" aria-expanded="false" aria-controls="filtros">
+          <div class="row">
+            <div class="col-md-6">
+              <div id="div_numeroProcesso" class="form-group">
+                <label for="endereco.numeroProcesso" class="control-label obrigatorio">Número do processo</label>
+                <div class="input-group">
+                  <input type="text" name="endereco.numeroProcesso" [(ngModel)]="endereco.numeroProcesso" 
+                    id="endereco.numeroProcesso" class="form-control"
+                    required [disabled]="readOnly">
+                  <span class="input-group-addon">
+                    <span data-toggle="tooltip" title="Ajuda"><i class="material-icons">help</i></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div id="div_cep" class="form-group">
+                <label for="endereco.cep" class="control-label">CEP</label>
+                <div class="input-group">
+                  <input type="text" name="endereco.cep" [(ngModel)]="endereco.cep" id="cep" class="form-control"
+                    [disabled]="readOnly">
+                  <span class="input-group-addon">
+                    <span data-toggle="tooltip" title="Ajuda"><i class="material-icons">help</i></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="rua" class="control-label">Rua</label>
+                <input type="text" name="endereco.rua" [(ngModel)]="endereco.rua" id="rua" 
+                  class="form-control" [disabled]="readOnly">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="complemento" class="control-label">Complemento</label>
+                <input type="text" name="endereco.complemento" [(ngModel)]="endereco.complemento"  id="complemento" 
+                  class="form-control" [disabled]="readOnly">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button (click)="onClickVoltar()" class="btn btn-default" type="button">Voltar</button>
+            <button (click)="onClickAcao()" class="btn btn-primary" type="button" *ngIf="!readOnly">{{tituloBotaoAcao}}</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  </article>

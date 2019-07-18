@@ -1,0 +1,6 @@
+[
+    {
+        "chave":"REST_API_PATH",
+        "valor":"http://localhost:8080/gmetricas/api"
+    }
+]

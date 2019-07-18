@@ -1,0 +1,76 @@
+<!-- Cabeçalho da página -->
+<div class="cabecalho">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <!-- Logo da página -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">
+          <img class="img-responsive" src="../assets/img/logo-rfb.png" alt="Receita Federal">
+          <span class="sistema-nome">RFB</span>
+          <span class="sistema-descricao hidden-xs hidden-sm">Gestão de Métricas</span>
+        </a>
+      </div>
+      <!-- Links de acessibilidade e contraste -->
+      <div class="navbar-right text-right">
+        <p class="acessibilidade hidden-xs">
+          <a href="javascript:void(0)">Acessibilidade</a>
+          <a (click)="contraste()" href="javascript:void(0)">Contraste</a>
+        </p>
+        <!-- Menu do cabeçalho -->
+        <ul class="menu-cabecalho hidden-xs">
+          <li class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-default dropdown-toggle" type="button"
+              aria-haspopup="true" aria-expanded="true">
+              <i class="material-icons icon-24">apps</i>
+            </button>
+            <ul *dropdownMenu class="dropdown-menu aplicacoes">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="material-icons icon-24">person</i>
+            </button>
+            <ul *dropdownMenu class="dropdown-menu configuracoes">
+              <li><a href="#">Editar preferências</a></li>
+              <li><a href="#">Editar dados pessoais</a></li>
+              <li><a href="#">Organizar favoritos</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="material-icons icon-24">notifications</i>
+              <span class="badge">2</span>
+            </button>
+            <ul *dropdownMenu class="dropdown-menu mensagens">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="btn btn-default dropdown-toggle" type="button" (click)="modalajuda">
+              <i class="material-icons icon-24">help</i>
+            </button>
+          </li>
+          <li>
+            <button (click)="logout()" class="btn btn-default dropdown-toggle" type="button">
+              <i class="material-icons icon-24">power_settings_new</i>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- Informações do usuário -->
+      <div class="servidor navbar-right text-right hidden-xs">
+        <p class="servidor-nome">{{sessao.usuario.nome}}</p>
+        <p class="servidor-perfil">{{perfilList()}}</p>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,122 @@
+<header class="header">
+    <cabecalho></cabecalho>
+    <modalajuda></modalajuda>
+    <loader></loader>
+    <menucomponent [breadCrumb]="" [tituloFuncionalidadeAtual]="'Relatório'"></menucomponent>
+</header>
+<article>
+  <div class="container">
+    <!-- Corpo da página -->
+    <p-messages [closable]="false"></p-messages>
+    <form>
+      <fieldset>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="control-label">Data: </label>
+              <label class="control-label">{{dataDe | date: 'dd/MM/yyyy'}} até {{dataAte | date: 'dd/MM/yyyy'}}</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="control-label">Projeto: </label>
+              <label class="control-label">{{projeto}}</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="control-label">Fronteira: </label>
+              <label class="control-label">{{fronteira}}</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="control-label">Tipo: </label>
+              <label class="control-label">{{tipoRelatorioTemp}}</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <!-- Tabela customizada -->
+    <div class="paginador">
+      <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+      <a *ngFor="let option of itensPorPagina" style="display: inline;" (click)="setRows(option.rows)" class="link">
+        {{option.rows}}
+      </a>
+    </div>
+    <div class="pesquisa-paginador-top">
+      <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+      <input #pageTop type="text" class="input-pesquisar-pagina-top form-control" (keyup.enter)="setPage(pageTop.value)" />
+    </div>
+    <p-dataTable #dataTable [value]="result.itensPagina" [paginatorPosition]="'both'" [responsive]="true" [pageLinks]="5"
+      [lazy]="true" [rows]="10" [paginator]="true" [style]="{'width':'100%'}" (onFilter)="setFilter($event)" (onSort)="setSortOrder($event)" (onPage)="loadData($event)"
+      [totalRecords]="result.paginador.numeroTotalItens" [loading]="loading" [responsive]="true">
+      <p-header>
+        <table class="table table-striped tabela" style="width:100%">
+          <caption style="width:100%">FUNCIONALIDADES</caption>
+          <thead>
+            <tr class="tabela-acoes">
+              <td colspan="12">
+                <div class="row">
+                  <div class="col-md-12 text-right hidden-xs">
+                    <a href="javascript:void(0)" (click)="exportXLS()" title="XLS"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+                    &nbsp;
+                    <a href="javascript:void(0)" (click)="exportPDF()" title="PDF"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </thead>
+        </table>
+      </p-header>
+      <p-column field="nome" header="Funcionalidade" [filter]="true" [sortable]="true"></p-column>
+      <p-column field="tipo" header="Tipo" [filter]="true" [sortable]="true" [style]="{'text-align':'center','width':'80px'}"></p-column>
+      <p-column field="complexidade" header="Complexidade" [filter]="true" [sortable]="true" [style]="{'text-align':'center','width':'120px'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getComplexidadeDescricao(item['complexidade'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="pontoFuncao" header="Ponto Função" [filter]="true" [sortable]="true" [style]="{'text-align':'right','width':'120px'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{getFormatarDecimal(item['pontoFuncao'])}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="numeroDemanda" header="Número Demanda" [filter]="true" [sortable]="true" [style]="{'text-align':'right','width':'150px'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{item['contagem'].numeroDemanda}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="dataImportacao" header="Data Contagem" [filter]="true" [sortable]="true" [style]="{'text-align':'center','width':'130px'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <span>{{item['contagem'].dataImportacao | date: 'dd/MM/yyyy'}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="contagem" header="Contagem" [style]="{'text-align':'center','width':'100px'}">
+        <ng-template let-col let-item="rowData" pTemplate="body">
+          <a href="javascript:void(0)" [routerLink]="['/pages', 'contagem-edicao', {id: item['contagem'].id, acao: 'DETALHES'}]"><i class="material-icons icon-24">open_in_new</i></a>
+        </ng-template>
+      </p-column>
+      <p-footer>
+        Total de Registros: {{result.paginador.numeroTotalItens}}
+      </p-footer>
+    </p-dataTable>
+    <div class="paginador-bottom">
+      <p class="form-group label-paginador" style="display: inline;">Resultados Por Página:</p>
+      <a *ngFor="let option of itensPorPagina" style="display: inline;" (click)="setRows(option.rows)" class="link">
+        {{option.rows}}
+      </a>
+    </div>
+    <div class="pesquisa-paginador-bottom">
+      <p class="form-group label-paginador" style="display: inline;">Ir para a página: </p>
+      <input #page type="text" class="input-pesquisar-pagina form-control" (keyup.enter)="setPage(page.value)" />
+    </div>
+    <br/>
+    <!-- FOOTER -->
+    <div class="form-group">
+        <button (click)="voltar()" class="btn btn-default" type="button">Voltar</button>
+      </div>
+  </div>
+  
+</article>
+  
